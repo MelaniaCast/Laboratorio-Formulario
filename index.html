@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">      
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--ESTO LO PUSE PORQUE LO VI EN VARIOS VIDEOS, para adpatarse mejor a otros dispisitivos-->
+
+        <title>Laboratorio evaluable - Desarrolladoras</title>
+        <link rel="stylesheet" type="text/css" href="style.css"> <!--ENLACE CSS-->
+        <script src="index.js" type="text/javascript"></script> <!--ENLACE JS-->
+
+        <!--PARA INTRODUCIR UN TIPO NUEVO DE FONT-FAMILY: "POPPINS"-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <!--ESTO LO HE HECHO CON UNA METODOLOGÍA "BEM", LO VI EN UN VIDEO Y ME PARECIÓ MÁS EXTENSO PERO MÁS ESPECÍFICO Y ACLARADOR,
+        POR ESO ESTÁ TAN COMPARTIMENTADO TODO, AL FINAL SOLO TENGO 4 GRUPOS Y EL BOTÓN-->
+        
+        <form action="" class="formulario" id="formulario">
+
+            <h1 class="tittle" id="titulo">Create Account</h1>
+
+            <!--GRUPO NOMBRE-->
+            <div class="formulario_grupo" id="formulario_grupo_nombre">
+                <label for="nombre" class="formulario_label">Nombre</label><!--CLASS=FORMULARIO_LABEL IGUAL EN TODOS LOS GRUPOS PARA EDITAR POR IGUAL-->
+                <div class="formulario_grupo_input"> <!--CLASS=FORMULARIO_GRUPO_INPUT  IGUAL EN TODOS LOS GRUPOS PARA EDITAR POR IGUAL-->
+                    <input type="text" class="formulario_input" name="nombre" id="nombre" pattern="[A-Za-z]"  onkeyup="evaluaNombre()" required>
+                    <!--Para hacer la validación del input al levantar la tecla, se activará la function y cada una llevará a cabo unos if de comprobación-->
+                    <img class="formulario_validacion_estado-incorrecto" src="images/error-icon.svg" alt="imagen incorrecto"> <!--ICONO error usado de la carpeta images-->
+                    <img class="formulario_validacion_estado-correcto" src="images/success-icon.svg" alt="imagen correcto"> <!--ICONO success usado de la carpeta images-->
+
+                </div>
+                <p class="formulario_input_vacio"> Rellene este campo</p>
+                <p class="formulario_input_error"> Introduzca un nombre válido</p>
+                <!--Añado uno a varios"p" con display none en CSS que se activarán cuando haya o bien un error o bien el campo esté vacio-->
+            </div>
+
+            <!--GRUPO EMAIL-->
+            <div class="formulario_grupo" id="formulario_grupo_email">
+                <label for="email" class="formulario_label">Email</label>
+                <div class="formulario_grupo_input">
+                    <input type="email" class="formulario_input" name="email" id="email" onkeyup="evaluaEmail()" required>
+                        <img class="formulario_validacion_estado-incorrecto" src="images/error-icon.svg" alt="imagen incorrecto">
+                        <img class="formulario_validacion_estado-correcto" src="images/success-icon.svg" alt="imagen correcto">
+                </div>
+                <p class="formulario_input_vacio"> Rellene este campo</p>
+                <p class="formulario_input_error"> Email inválido</p>
+            </div>
+
+            <!--GRUPO CLAVE1-->
+            <div class="formulario_grupo" id="formulario_grupo_clave1">
+                <label for="clave1" class="formulario_label">Clave</label>
+                <div class="formulario_grupo_input">
+                    <input type="password" class="formulario_input" name="clave1" id="clave1" onkeyup="evaluaClave1()" required >
+                    <!--podria añadir maxlength="8" y solo dejaría meter hasta 8, pero creo que hay que validarlo en js-->
+                        <img class="formulario_validacion_estado-incorrecto" src="images/error-icon.svg" alt="imagen incorrecto">
+                        <img class="formulario_validacion_estado-correcto" src="images/success-icon.svg" alt="imagen correcto">   
+                </div>
+                <p class="formulario_input_vacio"> Rellene este campo</p>
+                <p class="formulario_input_error"> No debe tener más de 8 carácteres</p> 
+            </div>
+
+            <!--GRUPO CLAVE2-->
+            <div class="formulario_grupo" id="formulario_grupo_clave2">
+                <label for="clave2" class="formulario_label">Confirme su clave</label>
+                <div class="formulario_grupo_input">
+                    <input type="password" class="formulario_input" name="clave2" id="clave2" onkeyup="evaluaClave2()" required>
+                    <!--podria añadir maxlength="8" y solo dejaría meter hasta 8, pero voy a validarlo en js-->
+                    <img class="formulario_validacion_estado-incorrecto" src="images/error-icon.svg" alt="imagen incorrecto">
+                    <img class="formulario_validacion_estado-correcto" src="images/success-icon.svg" alt="imagen correcto">
+                </div>
+                <p class="formulario_input_vacio"> Rellene este campo</p>
+                <p class="formulario_input_error"> Las contraseñas no coinciden</p> 
+            </div>
+
+            <!--GRUPO BOTON ENVIAR-->
+            <div class="formulario_grupo"> 
+                <!--PONEMOS DOS CLASS, LA MISMA QUE TODOS Y UNA PARTICULAR-->
+                <input type="button" class="formulario_enviar"  onclick="enviar()" value="Enviar"/>
+            </div>
+            
+        </form>
+    </body>
+
+</html>
+       
